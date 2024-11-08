@@ -50,6 +50,7 @@ class CAAFeatureBuilder:
     def iter_group(self):
         sample_pairs=list_dataset(self.dataset_dir,self.list_author_handle)
         
+        #print(list(sample_pairs))
         
         for sample_paths,sample_label in sample_pairs:
             counter=0    

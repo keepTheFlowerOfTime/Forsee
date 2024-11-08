@@ -30,8 +30,8 @@ from codesecurity.utils.pretty_print import percent
 DEVICE_GPU=torch.device('cuda:0')
 DEVICE_CPU=torch.device('cpu')
 
-def training_forsee(dataset_dir,sp,k=8,eval_dir=None,mode='kfold',use_caches=True,device='gpu',rebuild=False,partial=None,**kwargs):
-    meta=ForseeCachesMetatadata.auto(dataset_dir)
+def training_forsee(dataset_dir,sp,k=8,eval_dir=None,mode='kfold',use_caches=True,device='gpu',rebuild=False,partial=None,store_loc=None,**kwargs):
+    meta=ForseeCachesMetatadata.auto(dataset_dir,store_loc=store_loc)
     sp=ForseeSuperParameter.instance(sp)
     
     temp_partial=[None,None,None]
@@ -333,15 +333,15 @@ def get_class_number(dataset_dir):
     group=data_api.pickle_load(meta.training_raw_data_file)
     return len(group.addon)
 
-def build_training_caches(dataset_dir,sp,min_number=1,max_number=2**32-1,rebuild=False):
-    meta=ForseeCachesMetatadata.auto(dataset_dir)
+def build_training_caches(dataset_dir,sp,min_number=1,max_number=2**32-1,rebuild=False,store_loc=None):
+    meta=ForseeCachesMetatadata.auto(dataset_dir,store_loc=store_loc)
     sp=ForseeSuperParameter.instance(sp)
     raw_data_path=meta.training_raw_data_file
 
     if os.path.exists(raw_data_path) and not rebuild:
         print(f"caches already exists in {raw_data_path}")
 
-    training_set=prepare_training_set(dataset_dir,None,None,meta,sp,min_number=min_number,max_number=max_number)
+    training_set=prepare_training_set(dataset_dir,None,None,meta,sp)
     
     #refine_features=prepare_forsee_features(dataset_dir,meta,sp,min_number=min_number,max_number=max_number)
     #refine_features.save(meta.training_refine_data_file)

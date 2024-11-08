@@ -34,10 +34,10 @@ class ForseeCachesMetatadata:
     
 
     @staticmethod
-    def auto(dataset_dir,store_loc=None,flag="working"):
+    def auto(dataset_dir,store_loc=None,flag="dataset"):
         
         if store_loc is None:
-            store_loc='data_refine'
+            store_loc='caches'
         
         if not os.path.exists(store_loc):
             os.mkdir(store_loc)

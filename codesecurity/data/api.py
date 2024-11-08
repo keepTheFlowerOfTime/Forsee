@@ -3,7 +3,7 @@ import os
 import pickle
 import random
 from codesecurity.data.package_extract import iter_dir
-from codesecurity.data.caches_manager import GroupPipe,MutilevelCaches
+from codesecurity.data.caches_manager import GroupPipe
 
 def label_sample_with_dirname(dir,label=None):
 
