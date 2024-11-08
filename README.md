@@ -42,7 +42,7 @@ run cmd_batch.py for test
 python cmd_batch.py
 ```
 
-for epoch_num=150, the top1 of Forsee is 0.823 
+for epoch_num=150, the top1 of Forsee is 0.823 (just for test)
 
 the Training Step contains 4 models:
 1. Layout Indepentent Model

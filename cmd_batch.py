@@ -15,9 +15,9 @@ if len(sys.argv)>1:
         mode=sys.argv[1]
 
 if mode=='forsee_train':
-    #argruments=[['True']]
     cmds=['python main.py training_forsee dataset/gcj_cpp persp_cpp --k=8 --device=gpu',]
-    #]
+    #'python main.py training_forsee dataset/github_c github_c --k=10 --device=gpu --use_caches=False --rebuild={}',
+    #'python main.py training_forsee dataset/java40 java40 --k=10 --device=gpu --use_caches=False --rebuild={}'
 
 elif mode=='dataset_build':
     cmds=['python main.py build_training_caches dataset/gcj_cpp persp_cpp']
